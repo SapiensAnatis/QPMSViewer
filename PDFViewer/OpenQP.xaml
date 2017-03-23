@@ -9,14 +9,15 @@
     <Grid Margin="0,0,0,1">
         <TextBox x:Name="QP_FilepathTextBox" HorizontalAlignment="Left" Height="23" Margin="20,34,0,0" TextWrapping="NoWrap" Text="Enter a filepath here..." VerticalAlignment="Top" Width="200"/>
         <Button x:Name="QP_BrowseButton" Content="Browse..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="225,35,0,0" Click="QP_BrowseButton_Click"/>
-        <TextBox x:Name="QP_URL_TextBox" HorizontalAlignment="Left" Height="23" Margin="20,62,0,0" TextWrapping="NoWrap" Text="Enter a URL here..." VerticalAlignment="Top" Width="280"/>
+        <TextBox x:Name="QP_URL_TextBox" HorizontalAlignment="Left" Height="23" Margin="20,62,0,0" TextWrapping="NoWrap" Text="http://pmt.physicsandmathstutor.com/download/Maths/A-level/M1/Papers-Edexcel/January%202013%20QP%20-%20M1%20Edexcel.pdf" VerticalAlignment="Top" Width="280"/>
         <Label x:Name="QP_PromptLabel" Content="Provide a PDF for your question paper:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="323" FontSize="16" Height="34"/>
         <Button x:Name="QP_ProceedButton" Content="Use this question paper" HorizontalAlignment="Left" VerticalAlignment="Top" Width="280" Margin="20,90,0,0" Click="QP_ProceedButton_Click"/>
         <RadioButton x:Name="QP_UseFilepath" Content="" HorizontalAlignment="Left" Margin="4,38,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="QP_Use_URL" Content="" IsChecked="True" HorizontalAlignment="Left" Margin="4,66,0,0" VerticalAlignment="Top"/>
         <Grid x:Name="QP_DownloadGrid" Visibility="Collapsed">
             <ProgressBar x:Name="QP_URL_ProgressBar" HorizontalAlignment="Left" Height="17" Margin="21,116,0,0" VerticalAlignment="Top" Width="206"/>
-            <Label x:Name="QP_URL_ProgressLabel" Content="0/0 MB (0%)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,111,-3,0" Height="28" Width="99"/>
+            <Label x:Name="QP_URL_ProgressLabel" Content="0/0 KB" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,111,-3,0" Height="28" Width="99"/>
         </Grid>
+        <Label x:Name="QP_WebRequestStatusLabel" Visibility="Collapsed" Content="Web request error: 404" HorizontalAlignment="Left" Margin="20,115,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
