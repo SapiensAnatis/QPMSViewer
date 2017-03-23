@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDFViewer"
         mc:Ignorable="d"
-        Title="Open question paper" Height="159.034" Width="330.764">
+        Title="Open question paper" Height="177.809" Width="330.764">
     <Grid Margin="0,0,0,1">
         <TextBox x:Name="QP_FilepathTextBox" HorizontalAlignment="Left" Height="23" Margin="20,34,0,0" TextWrapping="NoWrap" Text="Enter a filepath here..." VerticalAlignment="Top" Width="200"/>
         <Button x:Name="QP_BrowseButton" Content="Browse..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="225,35,0,0" Click="QP_BrowseButton_Click"/>
@@ -14,6 +14,9 @@
         <Button x:Name="QP_ProceedButton" Content="Use this question paper" HorizontalAlignment="Left" VerticalAlignment="Top" Width="280" Margin="20,90,0,0" Click="QP_ProceedButton_Click"/>
         <RadioButton x:Name="QP_UseFilepath" Content="" HorizontalAlignment="Left" Margin="4,38,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="QP_Use_URL" Content="" IsChecked="True" HorizontalAlignment="Left" Margin="4,66,0,0" VerticalAlignment="Top"/>
-
+        <Grid x:Name="QP_DownloadGrid" Visibility="Collapsed">
+            <ProgressBar x:Name="QP_URL_ProgressBar" HorizontalAlignment="Left" Height="17" Margin="21,116,0,0" VerticalAlignment="Top" Width="206"/>
+            <Label x:Name="QP_URL_ProgressLabel" Content="0/0 MB (0%)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,111,-3,0" Height="28" Width="99"/>
+        </Grid>
     </Grid>
 </Window>
