@@ -1,0 +1,19 @@
+﻿<Window x:Class="PDFViewer.OpenMS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDFViewer"
+        mc:Ignorable="d"
+        Title="Open Markscheme" Height="171.629" Width="330.764">
+    <Grid>
+        <TextBox x:Name="MS_FilepathTextBox" HorizontalAlignment="Left" Height="23" Margin="18,55,0,0" TextWrapping="NoWrap" Text="Enter a filepath here..." VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="MS_BrowseButton" Content="Browse..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="223,56,0,0" Click="MS_BrowseButton_Click"/>
+        <TextBox x:Name="MS_URL_TextBox" HorizontalAlignment="Left" Height="23" Margin="18,83,0,0" TextWrapping="NoWrap" Text="Enter a URL here..." VerticalAlignment="Top" Width="280"/>
+        <Label x:Name="MS_PromptLabel" Content="I couldn't guess where the mark &#xD;&#xA;scheme was; please provide it below:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,1,0,0" Width="323" FontSize="16" Height="55"/>
+        <Button x:Name="button" Content="Use this mark scheme" HorizontalAlignment="Left" Margin="18,110,0,0" VerticalAlignment="Top" Width="280"/>
+        <RadioButton x:Name="MS_UseFilepath" IsChecked="False" HorizontalAlignment="Left" Margin="3,59,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="MS_Use_URL" IsChecked="True" HorizontalAlignment="Left" Margin="3,87,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
