@@ -26,15 +26,39 @@ namespace PDFViewer.ViewModel
             }
         }
 
-        public ICommand DownloadFileCommand // Fire Emblem: The Binding Blade
+        private string _WindowTitle = "eeee";
+        public string WindowTitle // Helps to differentiate between QP and MS without having different DelegateCommands
         {
-            get { System.Windows.MessageBox.Show("hacking"); return new DelegateCommand(DownloadFile); }
+            get { return _WindowTitle; }
+            set
+            {
+                _WindowTitle = value;
+                //NotifyPropertyChanged("Title"); Not needed: we're not changing the property of any ObservableObjects here, just the window.
+            }
+        }
+
+        public ICommand DownloadCommand // Fire Emblem: The Binding Blade
+        {
+            get
+            {
+                return new DelegateCommand(DownloadFile);
+            }
+        }
+
+        public ICommand DownloadMSCommand // Fire Emblem: The Binding Blade
+        {
+            get
+            {
+                return new DelegateCommand(DownloadFile);
+            }
         }
 
         private void DownloadFile()
         {
-            System.Windows.MessageBox.Show("actually hacking");
-            _downloader.Download_PDF_TMP(URL);
+            System.Windows.MessageBox.Show($"The window title is {WindowTitle}.");
+            if (WindowTitle == "Question paper") { _downloader.Download_PDF_TMP(URL, QP: true); }
+            else if (WindowTitle == "Mark scheme") { _downloader.Download_PDF_TMP(URL, MS: true); }
+            else { throw new InvalidOperationException("The data's purpose could not be inferred from the window title."); }
         }
     }
 }

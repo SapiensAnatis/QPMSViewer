@@ -19,6 +19,7 @@ namespace PDFViewer.ViewModel
 
         public void Execute(object parameter)
         {
+            
             _action(); // Perform action
         }
 

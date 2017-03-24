@@ -12,8 +12,7 @@
         <Button x:Name="LocalGoButton" Content="Go" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
         <Button x:Name="BrowseButton" Content="Browse" HorizontalAlignment="Left" Margin="247,10,0,0" VerticalAlignment="Top" Width="64" Height="22" />
         <TextBox x:Name="URLTextBox" HorizontalAlignment="Left" Height="22" Margin="11,42,0,0"  Text="http://pmt.physicsandmathstutor.com/download/Maths/A-level/M1/Papers-Edexcel/January%202013%20QP%20-%20M1%20Edexcel.pdf" VerticalAlignment="Top" Width="300"/>
-        <Button x:Name="URLGoButton" Content="Go" HorizontalAlignment="Left" Margin="319,42,0,0" VerticalAlignment="Top" Width="75" Height="22"
-                Command="{Binding DownloadFileCommand}"/>
+        <Button x:Name="URLGoButton" Command="{Binding DownloadCommand}" Content="Go" HorizontalAlignment="Left" Margin="319,42,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
 
     </Grid>
 </UserControl>

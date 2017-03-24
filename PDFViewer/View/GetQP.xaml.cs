@@ -23,5 +23,11 @@ namespace PDFViewer.View
         {
             InitializeComponent();
         }
+
+        private void GetFileControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Once we're loaded, just clarify that this is the QP window for downloading purposes
+            Title = "Question paper";
+        }
     }
 }

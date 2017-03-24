@@ -1,32 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
+using System.Text.RegularExpressions;
 
 namespace PDFViewer.Model
 {
     public class Download
     {
-        private WebClient client;
-        public string path = System.IO.Path.GetTempPath();
+        private WebClient WC;
+        private string FolderPath = System.IO.Path.GetTempPath();
 
         public Download()
         {
-            client = new WebClient();
+            WC = new WebClient();
         }
 
         public Download(string overrideDir)
         {
-            client = new WebClient();
-            path = overrideDir;
+            WC = new WebClient();
+            FolderPath = overrideDir;
         }
 
-        public string Download_PDF_TMP(string url)
+        public void Download_PDF_TMP(string url, bool MS = false, bool QP = false)
         {
-            client.DownloadFile(url, path + "Basically.pdf");
-            return path + "Basically.pdf";
+            string Filename;
+
+            if (QP) { Filename = "QP.pdf"; }
+            else if (MS) { Filename = "MS.pdf"; }
+            else { throw new System.InvalidOperationException("Illegally attempted to download file that was neither a mark scheme nor question paper."); }
+
+            WC.DownloadFile(url, FolderPath + Filename);
         }
     }
 }

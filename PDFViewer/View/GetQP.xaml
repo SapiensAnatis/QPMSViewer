@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:View="clr-namespace:PDFViewer.View"
         xmlns:ViewModel="clr-namespace:PDFViewer.ViewModel" 
-        mc:Ignorable="d"
-        Title="GetQP" Height="150.509" Width="416.949">
+        mc:Ignorable="d"  Height="150.509" Width="416.949"
+        Title="{Binding WindowTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
     <Window.DataContext>
         <ViewModel:DownloadPresenter/>
     </Window.DataContext>
     <Grid>
-        <View:GetFileControl/>
+        <View:GetFileControl Loaded="GetFileControl_Loaded"/>
         <Label x:Name="PromptLabel" Content="Please direct the application to your desired question paper:" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" FontSize="14"/>
     </Grid>
            
