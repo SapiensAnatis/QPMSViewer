@@ -1,0 +1,19 @@
+﻿<Window x:Class="PDFViewer.View.GetQP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:View="clr-namespace:PDFViewer.View"
+        xmlns:ViewModel="clr-namespace:PDFViewer.ViewModel" 
+        mc:Ignorable="d"
+        Title="GetQP" Height="150.509" Width="416.949">
+
+    <Window.DataContext>
+        <ViewModel:DownloadPresenter/>
+    </Window.DataContext>
+    <Grid>
+        <View:GetFileControl/>
+        <Label x:Name="PromptLabel" Content="Please direct the application to your desired question paper:" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" FontSize="14"/>
+    </Grid>
+           
+</Window>

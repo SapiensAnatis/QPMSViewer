@@ -15,7 +15,7 @@ namespace PDFViewer.ViewModel
             }
             else
             {
-                throw new NotImplementedException($"ObservableObject {this.GetType()} does not have property {PropertyName}");
+                throw new NotImplementedException($"ObservableObject '{this.GetType()}' does not have/implement the property '{PropertyName}'.");
             }
         }
     }

@@ -23,10 +23,10 @@ namespace PDFViewer.Model
             path = overrideDir;
         }
 
-        public string Download_PDF_TMP(string url, string filename)
+        public string Download_PDF_TMP(string url)
         {
-            client.DownloadFile(url, path + filename + ".pdf");
-            return path + filename + ".pdf";
+            client.DownloadFile(url, path + "Basically.pdf");
+            return path + "Basically.pdf";
         }
     }
 }

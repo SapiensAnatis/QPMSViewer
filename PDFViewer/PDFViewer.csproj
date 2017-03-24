@@ -58,42 +58,27 @@
     <Compile Include="Model\Download.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="ViewModel\Framework.cs" />
-    <Compile Include="ViewModel\Presenter.cs" />
-    <Compile Include="View\QPControl.xaml.cs">
-      <DependentUpon>QPControl.xaml</DependentUpon>
+    <Compile Include="ViewModel\DownloadPresenter.cs" />
+    <Compile Include="View\GetQP.xaml.cs">
+      <DependentUpon>GetQP.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="View\GetFileControl.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="View\GetFileControl.xaml.cs">
+      <DependentUpon>GetFileControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\OpenMS.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\OpenQP.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\QPControl.xaml">
+    <Page Include="View\GetQP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\OpenMS.xaml.cs">
-      <DependentUpon>OpenMS.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\OpenQP.xaml.cs">
-      <DependentUpon>OpenQP.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
