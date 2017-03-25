@@ -60,6 +60,9 @@
     <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="ViewModel\Framework.cs" />
     <Compile Include="ViewModel\DownloadPresenter.cs" />
+    <Compile Include="View\GetMS.xaml.cs">
+      <DependentUpon>GetMS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GetQP.xaml.cs">
       <DependentUpon>GetQP.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
     <Compile Include="View\GetFileControl.xaml.cs">
       <DependentUpon>GetFileControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\GetMS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GetQP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

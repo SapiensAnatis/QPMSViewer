@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -55,10 +56,36 @@ namespace PDFViewer.ViewModel
 
         private void DownloadFile()
         {
-            System.Windows.MessageBox.Show($"The window title is {WindowTitle}.");
-            if (WindowTitle == "Question paper") { _downloader.Download_PDF_TMP(URL, QP: true); }
-            else if (WindowTitle == "Mark scheme") { _downloader.Download_PDF_TMP(URL, MS: true); }
-            else { throw new InvalidOperationException("The data's purpose could not be inferred from the window title."); }
+            // First things first: validate URL:
+            try
+            {
+                if (string.IsNullOrEmpty(URL))
+                    { throw new UriFormatException("The URL text box was empty!"); }
+
+                System.Windows.MessageBox.Show($"Response: {_downloader.Check_URL_IsValid(URL)}");
+
+                if (WindowTitle == "Question paper")
+                    { _downloader.Download_PDF_TMP(URL, QP: true); }
+                else if (WindowTitle == "Mark scheme")
+                    { _downloader.Download_PDF_TMP(URL, MS: true); }
+                else
+                    { throw new InvalidOperationException("The data's purpose could not be inferred from the window title."); }
+            }
+            catch (UriFormatException ex)
+            {
+                System.Windows.MessageBox.Show($"The URL you provided was invalid. Error information: {ex.Message}");
+            }
+            catch (WebException ex)
+            {
+                // How to get the status code feat stackoverflow
+                HttpWebResponse error = (ex.Response as HttpWebResponse);
+                System.Windows.MessageBox.Show($"Web request returned an erorr! Error information: \"{error.StatusCode.ToString()}: {error.StatusDescription}\"\nIt is likely that either the site is down or your URL was validly formatted but pointed to an inaccessible or non-existent web resource.");
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Windows.MessageBox.Show("The program could not figure out whether it was a mark scheme or question paper being downloaded. Please report this.");
+            }
+            
         }
     }
 }

@@ -9,14 +9,7 @@ namespace PDFViewer.ViewModel
 
         protected void NotifyPropertyChanged(string PropertyName)
         {
-            if (this.GetType().GetMethod(PropertyName) != null)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
-            }
-            else
-            {
-                throw new NotImplementedException($"ObservableObject '{this.GetType()}' does not have/implement the property '{PropertyName}'.");
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
     }
 }
