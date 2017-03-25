@@ -4,3 +4,5 @@ As I envision that this project will get quite complex in terms of interface req
 
 MVVM, MVC, etc. are a similar group of concepts that essentially convey that the UI (View) and the Model (calculations) should bind to a controller (C, or ViewModel, VM in C#) that mediates interactions between them. Remembering the mess that was Duck Hunt made me immediately realise why this was a good idea. In that application, because I had AI I was calculating their positions and then wanting to update the UI from classes that weren't my Window. This caused issues with the threading (UI can only be updated from a particular thread) and complicated the codebase massively, which is a large reason as to why I didn't finish it.
 
+# Known issues
+For some reason, the application will hang after selecting a mark scheme if the URL for the mark scheme is the same as that for the question paper.
