@@ -1,0 +1,19 @@
+﻿<Window x:Class="PDFViewer.View.GetMS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDFViewer.View"
+        mc:Ignorable="d"
+        xmlns:View="clr-namespace:PDFViewer.View"
+        xmlns:ViewModel="clr-namespace:PDFViewer.ViewModel" 
+        Title="{Binding WindowTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        Height="150.5" Width="416.912">
+    <Window.DataContext>
+        <ViewModel:DownloadPresenter/>
+    </Window.DataContext>
+    <Grid>
+        <View:GetFileControl Loaded="GetFileControl_Loaded"/>
+        <Label x:Name="PromptLabel" Content="Please direct the application the corresponding mark scheme:" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" FontSize="14"/>
+    </Grid>
+</Window>

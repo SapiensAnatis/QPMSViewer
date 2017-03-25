@@ -13,16 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PDFViewer
+namespace PDFViewer.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for GetFileControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GetFileControl : UserControl
     {
-        public MainWindow()
+        public GetFileControl()
         {
             InitializeComponent();
+            // maybe i could make enter use the last one touched if I want to
         }
     }
 }
