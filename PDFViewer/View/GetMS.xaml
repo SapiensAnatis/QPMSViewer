@@ -13,7 +13,7 @@
         <ViewModel:DownloadPresenter/>
     </Window.DataContext>
     <Grid>
-        <View:GetFileControl Loaded="GetFileControl_Loaded"/>
+        <View:GetFileControl Loaded="GetFileControl_Loaded" Margin="2,18,3,10"/>
         <Label x:Name="PromptLabel" Content="Please direct the application the corresponding mark scheme:" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" FontSize="14"/>
     </Grid>
 </Window>

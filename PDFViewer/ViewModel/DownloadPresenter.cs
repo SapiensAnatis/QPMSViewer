@@ -1,6 +1,7 @@
 ﻿using PDFViewer.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -28,7 +29,12 @@ namespace PDFViewer.ViewModel
             }
         }
 
-        private string _WindowTitle = "eeee";
+        public static void Cleanup(object sender, CancelEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
+
+        private string _WindowTitle = "Undefined";
         public string WindowTitle // Helps to differentiate between QP and MS without having different DelegateCommands
         {
             get { return _WindowTitle; }
@@ -53,14 +59,10 @@ namespace PDFViewer.ViewModel
         {
             get { return new DelegateCommand(DownloadFile); }
         }
-
-        public ICommand DownloadMSCommand // Fire Emblem: The Binding Blade
-        {
-            get { return new DelegateCommand(DownloadFile); }
-        }
-
+        
         private void DownloadFile()
         {
+            // This is a placeholder for more responsive error handling later
             try
             {
                 if (string.IsNullOrEmpty(URL)) // Validate URL with the simplest measures
@@ -85,7 +87,6 @@ namespace PDFViewer.ViewModel
                 }
                 if (IsMS)
                 {
-                    MessageBox.Show("Closing MS");
                     var MSWindow = AllWindows.OfType<View.GetMS>().Single();
                     MSWindow.Close();
                 }
@@ -108,5 +109,7 @@ namespace PDFViewer.ViewModel
             }
             
         }
+
+  
     }
 }
