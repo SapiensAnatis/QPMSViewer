@@ -72,7 +72,7 @@ namespace PDFViewer.ViewModel
                 System.Windows.MessageBox.Show($"Response: {_downloader.Check_URL_IsValid(URL)}");
 
                 if (!(IsQP || IsMS)) { throw new InvalidOperationException("The data's purpose could not be inferred from the window title."); }
-                MessageBox.Show($"Time to go! IsQP = {IsQP}, IsMS = {IsMS}.");
+                //MessageBox.Show($"Time to go! IsQP = {IsQP}, IsMS = {IsMS}.");
                 _downloader.Download_PDF_TMP(URL, QP: IsQP, MS: IsMS);
 
                 // Once completed, close the window and advance to the next step
