@@ -9,7 +9,7 @@
         Title="{Binding WindowTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
     <Window.DataContext>
-        <ViewModel:DownloadPresenter/>
+        <ViewModel:GetFilePresenter/>
     </Window.DataContext>
     <Grid>
         <View:GetFileControl Loaded="GetFileControl_Loaded" Margin="2,19,3,10"/>

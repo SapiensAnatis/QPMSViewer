@@ -11,39 +11,49 @@ using System.Windows.Input;
 
 namespace PDFViewer.ViewModel
 {
-    class DownloadPresenter : ObservableObject
-    {
+    class GetFilePresenter : ObservableObject
+    { 
+
+        #region Bindings
+                private string _URL = "http://pmt.physicsandmathstutor.com/download/Maths/A-level/M1/Papers-Edexcel/January%202013%20QP%20-%20M1%20Edexcel.pdf";
+                public string URL // Represents the text box's URL property
+                {
+                    get
+                    {
+                        return _URL;
+                    }
+                    set
+                    {
+                        _URL = value;
+                        NotifyPropertyChanged("URL");
+                    }
+                }
+
+                public static void Cleanup(object sender, CancelEventArgs e)
+                {
+                    Properties.Settings.Default.Save();
+                }
+
+                private string _WindowTitle = "Undefined";
+                public string WindowTitle // Helps to differentiate between QP and MS without having different DelegateCommands
+                {
+                    get { return _WindowTitle; }
+                    set
+                    {
+                        _WindowTitle = value;
+                        //NotifyPropertyChanged("Title"); Not needed: we're not changing the property of any ObservableObjects here, just the window.
+                    }
+                }
+
+                public ICommand DownloadCommand // Fire Emblem: The Binding Blade
+                {
+                    get { return new DelegateCommand(DownloadFile); }
+                }
+        #endregion
+
+        #region Object values
+
         private readonly Download _downloader = new Download();
-
-        private string _URL = "http://pmt.physicsandmathstutor.com/download/Maths/A-level/M1/Papers-Edexcel/January%202013%20QP%20-%20M1%20Edexcel.pdf";
-        public string URL // Represents the text box's URL property
-        {
-            get
-            {
-                return _URL;
-            }
-            set
-            {
-                _URL = value;
-                NotifyPropertyChanged("URL");
-            }
-        }
-
-        public static void Cleanup(object sender, CancelEventArgs e)
-        {
-            Properties.Settings.Default.Save();
-        }
-
-        private string _WindowTitle = "Undefined";
-        public string WindowTitle // Helps to differentiate between QP and MS without having different DelegateCommands
-        {
-            get { return _WindowTitle; }
-            set
-            {
-                _WindowTitle = value;
-                //NotifyPropertyChanged("Title"); Not needed: we're not changing the property of any ObservableObjects here, just the window.
-            }
-        }
 
         private bool IsQP
         {
@@ -55,11 +65,12 @@ namespace PDFViewer.ViewModel
             get { return (WindowTitle == "Mark scheme"); }
         }
 
-        public ICommand DownloadCommand // Fire Emblem: The Binding Blade
-        {
-            get { return new DelegateCommand(DownloadFile); }
-        }
-        
+        public static bool QP_Path { get; set; }
+        public static bool MS_Path { get; set; }
+
+        #endregion
+
+        #region Functionality
         private void DownloadFile()
         {
             // This is a placeholder for more responsive error handling later
@@ -71,9 +82,8 @@ namespace PDFViewer.ViewModel
                 // Now: our actual download code. Lots of potential for exceptions, which will be handled below.
                 System.Windows.MessageBox.Show($"Response: {_downloader.Check_URL_IsValid(URL)}");
 
-                if (!(IsQP || IsMS)) { throw new InvalidOperationException("The data's purpose could not be inferred from the window title."); }
-                //MessageBox.Show($"Time to go! IsQP = {IsQP}, IsMS = {IsMS}.");
-                _downloader.Download_PDF_TMP(URL, QP: IsQP, MS: IsMS);
+                if (!(IsQP || IsMS)) { throw new InvalidOperationException("The data's purpose could not be inferred from the window title. This should never happen, but in case it did and this is now on /r/softwaregore, hi"); }
+                string DownloadedTo = _downloader.Download_PDF_TMP(URL, QP: IsQP, MS: IsMS);
 
                 // Once completed, close the window and advance to the next step
                
@@ -81,14 +91,14 @@ namespace PDFViewer.ViewModel
                 if (IsQP)
                 {
                     var QPWindow = AllWindows.OfType<View.GetQP>().Single();
-                    var MSWindow = new View.GetMS();
-                    MSWindow.Show();
-                    QPWindow.Close();
+                    QPWindow.DialogResult = true;
+                    QPWindow.ResultantPath = DownloadedTo;
                 }
                 if (IsMS)
                 {
                     var MSWindow = AllWindows.OfType<View.GetMS>().Single();
-                    MSWindow.Close();
+                    MSWindow.DialogResult = true;
+                    MSWindow.ResultantPath = DownloadedTo;
                 }
                 
             }
@@ -110,6 +120,7 @@ namespace PDFViewer.ViewModel
             
         }
 
-  
+        #endregion
+
     }
 }

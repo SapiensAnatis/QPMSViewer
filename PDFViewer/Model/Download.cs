@@ -27,15 +27,17 @@ namespace PDFViewer.Model
             FolderPath = overrideDir;
         }
 
-        public string Check_URL_IsValid(string url)
+        public string Check_URL_IsValid(string url) // Exceptions are handled in the VM to better communicate them to users.
         {
             var request = WebRequest.Create(url) as HttpWebRequest;
             request.Method = "HEAD";
             var response = request.GetResponse();
-            return "OK!"; // We will also handle exceptions in the VM to show the users more info.
+            response.Close(); // You must close the response otherwise the next request will hang due to an active request.
+                              // Because GetResponse() throws the exceptions we need to perform validation, we can do this directly after.
+            return "OK!";
         }
 
-        public void Download_PDF_TMP(string url, bool MS = false, bool QP = false)
+        public string Download_PDF_TMP(string url, bool MS = false, bool QP = false)
         {
             string Filename;
 
@@ -44,9 +46,7 @@ namespace PDFViewer.Model
             else { throw new System.InvalidOperationException("Illegally attempted to download file that was neither a mark scheme nor question paper."); }
             string FinalPath = FolderPath + Filename;
             WC.DownloadFile(url, FinalPath);
-
-            if (QP) { ModelData.QP_Path = FinalPath; }
-            else if (MS) { ModelData.MS_Path = FinalPath; }
+            return FinalPath;
         }
     }
 }

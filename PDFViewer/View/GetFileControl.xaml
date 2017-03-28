@@ -6,7 +6,7 @@
              xmlns:ViewModel="clr-namespace:PDFViewer.ViewModel"
              xmlns:local="clr-namespace:PDFViewer.View"
              mc:Ignorable="d" Height="90.729" Width="404.5"
-             d:DataContext="{d:DesignInstance ViewModel:DownloadPresenter}"
+             d:DataContext="{d:DesignInstance ViewModel:GetFilePresenter}"
              xmlns:properties="clr-namespace:PDFViewer.Properties">
     <Grid>
         <TextBox x:Name="LocalTextBox" HorizontalAlignment="Left" Height="22" Margin="11,10,0,0" TextWrapping="Wrap" Text="Enter a filepath here..." VerticalAlignment="Top" Width="231"/>

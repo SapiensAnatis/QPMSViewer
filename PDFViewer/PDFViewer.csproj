@@ -55,16 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ModelData.cs" />
     <Compile Include="Model\Download.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="ViewModel\Framework.cs" />
-    <Compile Include="ViewModel\DownloadPresenter.cs" />
+    <Compile Include="ViewModel\GetFilePresenter.cs" />
+    <Compile Include="ViewModel\PDFViewPresenter.cs" />
     <Compile Include="View\GetMS.xaml.cs">
       <DependentUpon>GetMS.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GetQP.xaml.cs">
       <DependentUpon>GetQP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="View\GetFileControl.xaml">
       <SubType>Designer</SubType>
@@ -82,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\GetQP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

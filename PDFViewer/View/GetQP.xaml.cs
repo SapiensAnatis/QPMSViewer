@@ -11,8 +11,10 @@ namespace PDFViewer.View
         public GetQP()
         {
             InitializeComponent();
-            Closing += new CancelEventHandler(ViewModel.DownloadPresenter.Cleanup);
+            Closing += new CancelEventHandler(ViewModel.GetFilePresenter.Cleanup);
         }
+
+        public string ResultantPath { get; set; }
 
         private void GetFileControl_Loaded(object sender, RoutedEventArgs e)
         {

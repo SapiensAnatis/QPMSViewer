@@ -28,6 +28,6 @@ namespace PDFViewer.ViewModel
             return true; // Don't gray out buttons it's dumb
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged; // Interface compliance
     }
 }
