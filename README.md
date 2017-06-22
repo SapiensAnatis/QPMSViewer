@@ -1,5 +1,3 @@
 # QPMSViewer
 
-A simple application to embed mark schemes into question papers for revision purposes.
-
-Requires C# 7.0 to build as several new language features are utilised.
+A quick foray into the world of MVVC for GUI applications. Designed to enable quick viewing of the mark scheme with papers, mostly Maths in mind. Some complex PDF parsing hurdles I have yet to surmount, and the project remained dormant since then. 
